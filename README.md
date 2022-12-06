@@ -53,21 +53,27 @@ return r;
 OpenMP (Open Multi-Processing)는 다중코어 환경에서 병렬프로그래밍을 지원하는 API이다. 이 과제  
 에서는 소수를 빨리 찾기 위해 OpenMP 라이브러리를 사용한다. 학생들이 과제를 수행하는데 OpenMP  
 에 대한 지식이 꼭 필요한 것은 아니지만 검증 프로그램을 돌리기 위해서는 OpenMP를 설치해야 한다.  
+
 • Linux 환경에서는 설치하지 않는다. 컴파일러에 내장되어 있다.  
 • macOS 환경에서는 먼저 Homebrew를 설치해야 한다. 이미 Homebrew가 설치되어 있다면 이  
 부분은 건너뛴다. Homebrew를 설치하려면 터미널을 열고 다음 명령어를 실행한다.  
+
 % /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"  
+
 Homebrew 설치가 완료되면 다음 명령어를 실행하여 OpenMP 라이브러리를 설치한다.  
+
 % brew install libomp  
+
 애플 실리콘이 탑재된 맥에서는 brew 명령어를 찾지 못하는 오류가 발생할 수 있다. brew 명령어가  
 /usr/local/bin 밑에 있지 않고 /opt/homebrew/bin 밑에 있기 때문이다. /opt/homebrew/bin  
 을 시스템 기본 실행 경로에 포함시켜야 한다. 헤더 파일과 라이브러리 파일 경로도 gcc 컴파일러  
 환경변수에 추가해야 한다. 사용자 홈디렉토리로 이동하여 문자편집기로 .zshrc 파일을 열거나  
-새로 생성한다. 아래 세 줄을 추가하고 저장한 후 터미널을 다시 시작한다.
-export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
-export LIBRARY_PATH=/opt/homebrew/lib:$LIBRARY_PATH
-export C_INCLUDE_PATH=/opt/homebrew/include:$C_INCLUDE_PATH
-골격 파일
-구현이 필요한 골격파일 miller_rabin.skeleton.c와 함께 프로그램을 검증할 수 있는 test.c, 헤
-더파일 miller_rabin.h, 그리고 Makefile을 제공한다. 이 가운데 test.c를 제외한 나머지 파일은
+새로 생성한다. 아래 세 줄을 추가하고 저장한 후 터미널을 다시 시작한다.  
+
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH  
+export LIBRARY_PATH=/opt/homebrew/lib:$LIBRARY_PATH  
+export C_INCLUDE_PATH=/opt/homebrew/include:$C_INCLUDE_PATH  
+## 골격 파일
+구현이 필요한 골격파일 miller_rabin.skeleton.c와 함께 프로그램을 검증할 수 있는 test.c, 헤  
+더파일 miller_rabin.h, 그리고 Makefile을 제공한다. 이 가운데 test.c를 제외한 나머지 파일은  
 용도에 맞게 자유롭게 수정할 수 있다.
