@@ -28,10 +28,10 @@
 
 r = 0;  
 while (b > 0) {  
-  if (b & 1)  
-    r = mod_add(r, a, m);  
-  b = b >> 1;  
-  a = mod_add(a, a, m);  
+  if (b & 1)  
+    r = mod_add(r, a, m);  
+  b = b >> 1;  
+  a = mod_add(a, a, m);  
 }  
 return r;  
 
